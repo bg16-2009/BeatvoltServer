@@ -1,0 +1,13 @@
+package main
+
+import (
+	"time"
+)
+
+const (
+	secret_key        = "<random string used for jwt token generation>"
+	dbFile            = "db.db"
+	codeValidDuration = 3 * 24 * time.Hour
+	certFile          = "cert.pem"
+	keyFile           = "key.pem"
+)
