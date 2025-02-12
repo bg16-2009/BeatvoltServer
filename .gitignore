@@ -1,2 +1,5 @@
 db.db
 conf.go
+cert.pem
+key.pem
+beatvolt_server

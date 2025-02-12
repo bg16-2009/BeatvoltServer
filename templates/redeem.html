@@ -1,18 +1,12 @@
 {{ define "redeem" }}
 <!doctype html>
 <html lang="en" data-bs-theme="dark" class="dark">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Beatvolt</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+  {{ template "components/headers" .}}
   <body class="bg-gray-800 text-white">
     {{ template "components/navbar" .}}
 
     <div class="p-6">
-      <h1 class="text-2xl font-semibold mb-4">Scan the QR Code</h1>
+      <h1 class="text-2xl font-semibold mb-4">Show the QR Code to redeem your prize</h1>
       <img src="https://api.qrserver.com/v1/create-qr-code/?size=150x150&data={{ .qrString }}" alt="QR Code" class="mx-auto border border-gray-500 rounded-lg shadow-lg max-w-full max-h-full">
     </div>
   </body>

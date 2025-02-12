@@ -1,8 +1,8 @@
 package main
 
 import (
-	"fmt"
 	"html/template"
+	"log"
 	"net/http"
 )
 
@@ -13,7 +13,7 @@ func loadTemplates() {
 	_, err := tpl.ParseGlob("templates/**/*.html")
 	_, err = tpl.ParseGlob("templates/*.html")
 	if err != nil {
-		panic(fmt.Errorf("error parsing templates: %w", err))
+		log.Fatal("error parsing templates: %w", err)
 	}
 }
 

@@ -13,6 +13,7 @@ Implementation of the server for a reward system that encourages battery recycli
 - Provides a web interface for admins to see all users names, emails and how many batteries they recycled
 - Provides a web interface for admins to see a list of how many batteries each client recycled
 - Provides a web interface for admins to validate a user's QR code and remove batteries for future reward validations
+- Provides a cli interface for adding admins and creating accounts for the clients
 
 * A song is represented as a json array of numbers. Two numbers are used for every note. The first one represents the note frequency in hertz and the second one represents the duration (1 - full note, 2 - half note, 4 - quarter note etc.). If the duration is negative, the note is dotted(1.5 times the normal duration). If the note frequency is 0, the note is a rest note(silence). If the note frequency is -1 it is treated as an instruction to change the tempo to the value provided in the duration of that note. The default tempo is 140.
 
@@ -32,3 +33,6 @@ The protected routes need either a http header: `Authorization: Bearer <token>` 
 
 ### `GET /robot/random_song` (protected): 
 - Returns a song
+
+## Screenshots
+Go to [screenshots](./screenshots/)

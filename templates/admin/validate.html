@@ -1,12 +1,7 @@
 {{ define "admin/validate" }}
 <!doctype html>
 <html lang="en" data-bs-theme="dark" class="dark">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Beatvolt</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-  </head>
+  {{ template "components/headers" .}}
   <body class="bg-gray-800 text-white">
     {{ template "components/navbar" .}}
 

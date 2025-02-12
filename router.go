@@ -98,7 +98,7 @@ func makeRouter() chi.Router {
 			u := models.User{}
 			db.Where("id = ?", claims["userId"]).First(&u)
 			db.Model(&u).Update("recycled_batteries", u.RecycledBatteries+1)
-			http.Redirect(w, r, "/success?m=Code claimed succesfully", http.StatusSeeOther)
+			http.Redirect(w, r, "/success?m=Code claimed successfully", http.StatusSeeOther)
 			delete(codeStore, inputCode)
 
 			storeMutex.Unlock()
