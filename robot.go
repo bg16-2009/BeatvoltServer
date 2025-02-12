@@ -61,7 +61,7 @@ func robotRouter() chi.Router {
 		}
 		w.WriteHeader(http.StatusUnauthorized)
 		json.NewEncoder(w).Encode(map[string]interface{}{
-			"success": true,
+			"success": false,
 			"error":   "Invalid credentials.",
 		})
 	})
