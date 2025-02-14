@@ -1,0 +1,36 @@
+{{ define "leaderboard" }}
+<!doctype html>
+<html lang="en" data-bs-theme="dark" class="dark">
+  {{ template "components/headers" .}}
+  <body class="bg-gray-800 text-white">
+    {{ template "components/navbar" .}}
+
+    <div class="p-6">
+    <div class="p-6">
+        <h2 class="text-2xl font-semibold mb-4">Top 10 Users</h2>
+        <div class="overflow-x-auto">
+            <table class="w-full text-sm text-left text-gray-400 border border-gray-700">
+                <thead class="text-xs uppercase bg-gray-700 text-gray-400">
+                    <tr>
+                        <th scope="col" class="px-6 py-3 border border-gray-600">Username</th>
+                        <th scope="col" class="px-6 py-3 border border-gray-600">Recycled Batteries</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {{ range .Users }}
+                    <tr class="bg-gray-800 border-b border-gray-700">
+                        <td class="px-6 py-4 border border-gray-600">{{ .Username }}</td>
+                        <td class="px-6 py-4 border border-gray-600">{{ .RecycledBatteries }}</td>
+                    </tr>
+                    {{ end }}
+                </tbody>
+            </table>
+        </div>
+
+    </div>
+    </div>
+  </body>
+</html>
+{{ end }}
+
+<!-- vim: set ts=2 sts=2 sw=2 et: -->

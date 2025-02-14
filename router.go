@@ -2,6 +2,7 @@ package main
 
 import (
 	"encoding/base64"
+	"fmt"
 	"net/http"
 	"strconv"
 	"time"
@@ -55,6 +56,22 @@ func makeRouter() chi.Router {
 			renderTemplate("redeem", w, map[string]interface{}{
 				"qrString": base64.StdEncoding.EncodeToString([]byte(redeemToken)),
 				"IsAdmin":  u.IsAdmin,
+			})
+		})
+		r.Get("/leaderboard", func(w http.ResponseWriter, r *http.Request) {
+			var users []models.User
+			result := db.Where("is_admin = ?", false).Order("recycled_batteries DESC").Limit(10).Find(&users)
+
+            if result.Error != nil {
+                fmt.Println("Error fetching users:", result.Error)
+            }
+			_, claims, _ := jwtauth.FromContext(r.Context())
+			u := models.User{}
+			db.Where("id = ?", claims["userId"]).First(&u)
+
+			renderTemplate("leaderboard", w, map[string]interface{}{
+				"Users":   users,
+				"IsAdmin": u.IsAdmin,
 			})
 		})
 		r.Get("/claim", func(w http.ResponseWriter, r *http.Request) {
